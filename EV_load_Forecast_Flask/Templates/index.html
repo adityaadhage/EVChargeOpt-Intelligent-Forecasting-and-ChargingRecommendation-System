@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EV Load Forecast</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h2 { color: #2c3e50; }
+        form { background: #f4f4f4; padding: 20px; border-radius: 8px; width: 400px; }
+        label { display: block; margin-top: 10px; }
+        input { width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px; }
+        button { margin-top: 15px; padding: 10px 15px; background: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #219150; }
+    </style>
+</head>
+<body>
+    <h2>EV Load Forecasting & Best Charging Time Recommendation</h2>
+    <form action="/predict" method="POST">
+        <label for="last_timestamp">Last Timestamp (YYYY-MM-DD HH:MM:SS):</label>
+        <input type="text" id="last_timestamp" name="last_timestamp" placeholder="2025-08-09 12:00:00" required>
+
+        <label for="hours">Forecast Hours:</label>
+        <input type="number" id="hours" name="hours" value="24" min="1">
+
+        <label for="start_hour">Start Hour (0-23):</label>
+        <input type="number" id="start_hour" name="start_hour" placeholder="13" min="0" max="23" required>
+
+        <label for="end_hour">End Hour (0-23):</label>
+        <input type="number" id="end_hour" name="end_hour" placeholder="18" min="0" max="23" required>
+
+        <button type="submit">Get Predictions</button>
+    </form>
+</body>
+</html>
